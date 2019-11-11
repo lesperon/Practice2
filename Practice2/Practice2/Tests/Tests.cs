@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using Practice2.BaseTest;
 using System;
 using System.Collections.Generic;
@@ -7,20 +8,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practice2
+namespace Practice2.Tests
 {
-    class Program : BaseClass
+    class Tests : BaseClass
     {
-        static void Main(string[] args)
+
+        [Test]
+        public static void Test1()
         {
 
             OpenPageRegisterClick();
 
+        }
+
+        [Test]
+        public static void Test2()
+        {
 
             EnterFirstLastName(By.Name("firstName"), ConfigurationManager.AppSettings.Get("FirstName"));
             EnterFirstLastName(By.Name("lastName"), ConfigurationManager.AppSettings.Get("LastName"));
 
             driver.FindElement(By.Name("register")).Click();
         }
+
     }
 }
